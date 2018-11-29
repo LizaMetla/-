@@ -1,0 +1,83 @@
+#include <iostream>
+#include <stdlib.h>
+
+void entermass(int n, int mass[]) //заполнение элементами
+{
+    int i;
+    for (i = 0; i <n ; i++){
+        printf("mass[%d] = ", i);
+        scanf("%d", &mass[i]);
+    }
+
+}
+
+void output_mass(int n, int mass[]) {
+    for (int m = 0; m < n; m++)//вывод
+    {
+        printf("%d ", mass[m]);
+    }
+    printf("\n");
+}
+void swap(int *x, int *y)
+{
+    int temp;
+    temp = *x; /* сохранить значение из адреса х */
+    *x = *y; /* поместить у в х */
+    *y = temp; /* поместить х в у */
+}
+
+int cmp(const void *a, const void *b) {
+    return *(int*)a - *(int*)b;
+}
+
+int main() //размер массива
+{
+    int n,s,j,k;
+
+    printf("Введите n: ");
+    scanf("%d", &n);
+
+
+    int m_n[n];
+
+    entermass(n, m_n);
+
+    printf ("Введите 0 для сортировки по возрастанию;\nВведите 1 для сортировки по убыванию;\nВведите 2 для сортировки пузырьком; \nВвод: ");
+    scanf ("%d", &s);
+    switch (s) //sortirovka po vozrastaniu i ubivaniu
+    {
+        case 0: {
+            for (j = 0; j < n; j++) {
+                for (k = j + 1; k < n; k++) {
+                    if (m_n[j] > m_n[k])
+                        swap(&m_n[j], &m_n[k]);
+                }
+
+            }
+        }
+            break;
+        case 1: {
+            for (j = 0; j < n; j++) {
+                for (k = j + 1; k < n; k++) {
+                    if (m_n[j] < m_n[k])
+                        swap(&m_n[j], &m_n[k]);
+                }
+            }
+        }
+            break;
+        case 2:{
+            qsort(m_n, n, sizeof(int), cmp );
+
+        }break;
+
+
+        default:
+        {
+            printf("Умри !!!!");
+            return 1;
+        }
+    }
+    output_mass(n,m_n);
+    return 0;
+
+}
