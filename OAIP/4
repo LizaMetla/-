@@ -1,0 +1,43 @@
+#include <iostream>
+#include <locale>
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int N;
+
+	printf("Ввод N: ");
+	scanf_s("%d", &N);
+
+	int *mass = new int[N];
+	int *p;
+
+	for (int i = 0; i < N; i++)
+	{
+		printf("mass[%d] =", i);
+		scanf_s("%d", &mass[i]);
+	}
+
+	p = &mass[N - 1];
+
+	for (int i = 0; i < N; i++)
+	{
+		if (*(p - i) >= 5 && *(p - i) <= 10)
+		{
+			printf("%d ", *(p - i));
+		}
+		else if (*(p - i) >= 30 && *(p - i) <= 40)
+		{
+			printf("%d ", *(p - i));
+		}
+		else if (*(p - i) >= 70 && *(p - i) <= 90)
+		{
+			printf("%d ", *(p - i));
+		}
+	}
+
+	delete[] mass;
+	return 0;
+}
+
+//Введите с клавиатуры данные в массив целого типа, а затем выведите их на экран увеличенными в 3 раза и в обратном порядке.
