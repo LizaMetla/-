@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 // Функция вывода матрицы
 void PrintMatr(int **mas, int m) {
     int i, j;
