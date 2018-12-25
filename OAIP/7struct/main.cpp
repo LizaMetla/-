@@ -40,15 +40,16 @@ int main() {
     return 0;
 }
 void vivod(struct STUDENT stud[N]) {
-    int structsize = N, i, j, flag = 0;
+    int structsize = N, i, j;
+    bool flag;
     for (i = 0; i < structsize; i++) {
-        flag = 0;
+        flag = true;
         for (j = 0; j < 5; j++) {
             if (stud[i].res[j] < 9) {
-                flag = 1;
+                flag = false;
             }
         }
-        if (flag == 0) {
+        if (flag) {
             printf("Студент #%d\n%s %s\nОценки: %d %d %d %d %d\n\n", i + 1, stud[i].f, stud[i].io, stud[i].res[0],
                    stud[i].res[1], stud[i].res[2], stud[i].res[3], stud[i].res[4]);
         }
