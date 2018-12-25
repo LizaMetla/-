@@ -5,7 +5,7 @@
 #include <cstdlib>
 #define N 10
 
-
+//си сосёт
 struct STUDENT {
     char f[30];
     char io[30];
@@ -54,6 +54,7 @@ void vivod(struct STUDENT stud[N]) {
                    stud[i].res[1], stud[i].res[2], stud[i].res[3], stud[i].res[4]);
         }
     }
+
 
 }
 
